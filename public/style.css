@@ -1,0 +1,64 @@
+html, body {
+    width: 100%;
+    min-height: 100%;
+    background-color: lemonchiffon;
+}
+
+.main-container {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.logo {
+    padding: 30px 0;
+}
+
+.logo img{
+    width: 400px;
+    border-radius: 10%;
+}
+
+.eat:hover {
+        transform: rotateZ(-10deg);
+}
+
+.burger-box {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.uneaten, .eaten {
+    flex: 1;
+}
+
+.burger {
+    padding: 30px 0;
+    border: 1px solid orange;
+    position: relative;
+    margin: 0 10px 10px 0;
+}
+
+.burger img {
+    width: 100px;
+    height: auto;
+    border-radius: 40%;
+    position: absolute;
+    left: 20px;
+    margin: auto 0;
+    top: 0;
+    bottom: 0;
+}
+
+.burger button {
+    position: absolute;
+    margin: auto 0;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    height: 40px;
+}
+
+.add input {
+    margin: 0 10px 10px 10px;
+}
