@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var db = require('./models');
 
-var port = process.env.NODE_EVN || 3000;
+var port = process.env.PORT || 3000;
 var app = express();
 
 db.sequelize.sync().then(function() {
