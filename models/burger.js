@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             allowNull: false,
             defaultValue: false
+        },
+        eaten_by: {
+            type: DataTypes.STRING,
+            defaultValue: null
         }
     });
     return Burger;

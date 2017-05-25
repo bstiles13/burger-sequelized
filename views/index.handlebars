@@ -1,57 +1,62 @@
 <div class='main-container'>
     <div class='logo'><img src='http://schweidandsons.com/wp-content/uploads/2017/02/xbuger-ipsum.png.pagespeed.ic.YP5aLHBvmx.png' /></div>
     <div class='burger-box'>
-    <div class='uneaten'>
-    <h2>On the Platter</h2>
-    {{#each burgers}}
-        {{#unless devoured }}
-        <div class='burger'>
-            <form action='/{{id}}/eat?_method=PUT' method='POST'>
-            <img src='http://1.media.collegehumor.cvcdn.com/33/94/c296833d556cf46c714bf5cff593f240.gif' />
-            <span>{{burger_name}}</span>
-            <button class='eat btn btn-info'>Eat</button>
-            </form>
+        <div class='uneaten'>
+            <h2>On the Platter</h2>
+            {{#each burgers}}
+                {{#unless devoured }}
+                    <div class='burger'>
+                        <form action='/{{id}}/eat?_method=PUT' method='POST'>
+                            <img src='http://1.media.collegehumor.cvcdn.com/33/94/c296833d556cf46c714bf5cff593f240.gif' />
+                            <span class='burg-name'>{{burger_name}}</span>
+                            <div class='options'>
+                                <input class='name' type='text' name='name' placeholder='Customer'>
+                                <button class='eat btn btn-info'>Eat</button>
+                            </div>
+                        </form>
+                    </div>
+                {{/unless}}
+            {{/each}}
         </div>
-        {{/unless}}
-    {{/each}}
+        <div class='eaten'>
+            <h2>Eaten Burgers</h2>
+            {{#each burgers}}
+                {{#if devoured}}
+                    <div class='burger'>
+                        <form action='/{{id}}/restore?_method=PUT' method='POST'>
+                            <img src='http://1.media.collegehumor.cvcdn.com/33/94/c296833d556cf46c714bf5cff593f240.gif' />
+                            <span class='burg-name'>{{burger_name}}</span>
+                            <div class='options'>
+                                <span class='name'>Eaten By: {{eaten_by}}</span>
+                                <button class='eat btn btn-success'>Regurgitate</button>
+                            </div>
+                        </form>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
     </div>
-    <div class='eaten'>
-    <h2>Eaten Burgers</h2>
-        {{#each burgers}}
-            {{#if devoured}}
-                <div class='burger'>
-                    <form action='/{{id}}/restore?_method=PUT' method='POST'>
-                    <img src='http://1.media.collegehumor.cvcdn.com/33/94/c296833d556cf46c714bf5cff593f240.gif' />
-                    <span>{{burger_name}}</span>
-                    <button class='eat btn btn-success'>Regurgitate</button>
-                    </form>
-                </div>
-            {{/if}}
-        {{/each}}
-        </div>
-        </div>
 
     <div class='add'>
-    <h2>Add Burger</h2>
-    <form action='/' method='POST'>
-        <input type='text' name='name' />
-        <input type='radio' name='status' value='0' />Uneaten
-        <input type='radio' name='status' value='1' />Eaten
-        <br />
-        <button class='add btn btn-warning'>Add</button>
-    </form>
+        <h2>Add Burger</h2>
+        <form action='/' method='POST'>
+            <input type='text' name='name' />
+            <input type='radio' name='status' value='0' />Uneaten
+            <input type='radio' name='status' value='1' />Eaten
+            <br />
+            <button class='add btn btn-warning'>Add</button>
+        </form>
     </div>
 
 
 </div>
-
-<!--<script>
-    $(document).ready(function() {
-
-        $('.add').on('click', function(event) {
-            event.preventDefault();
-            console.log($('form').serialize());
-        })
-
-    })
-</script>-->
+<script>
+    /*$(document).ready(function() {
+                                            $('.name').focus(function() {
+                                                $(this).val('');
+                                            })
+                                            $('.name').blur(function() {
+                                                $(this).val('Customer');
+                                            })
+                                        })*/
+</script>

@@ -21,8 +21,10 @@ router.post('/', function(req, res) {
 
 router.put('/:id/eat', function(req, res) {
     var id = req.params.id;
+    var name = req.body.name;
     db.Burger.update({
-        devoured: 1
+        devoured: 1,
+        eaten_by: name
     }, {
         where: {
             id: id
@@ -35,7 +37,8 @@ router.put('/:id/eat', function(req, res) {
 router.put('/:id/restore', function(req, res) {
     var id = req.params.id;
     db.Burger.update({
-        devoured: 0
+        devoured: 0,
+        eaten_by: null
     }, {
         where: {
             id: id
