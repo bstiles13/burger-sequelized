@@ -6,7 +6,7 @@ var db = require('./models');
 var port = process.env.PORT || 3000;
 var app = express();
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync({ force: true }).then(function() {
     app.listen(port, function() {
         console.log('Listening on port ' + port);
     })
